@@ -1,0 +1,219 @@
+/* This first block of css is common for every project so do it before hand. */
+*{
+    margin:0; 
+    padding:0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    background-color: #2b1d0f; 
+    color: #fff;  /* for text color of web-page. */
+}
+header nav{
+    background-color: #212121;
+    padding: 20px;
+    display:flex; /* to make the header menu items in a row and not on top of each other.*/
+    justify-content: space-between ; /* this will center all the elements inside the container horizontally*/
+    align-items:center;   /*this will vertically align the content inside the container*/
+    z-index: 1;    /* so that color of navbar is clearly visible. */
+}
+header nav h1 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+header nav form{
+    display: flex;
+    justify-content: center;
+}
+form input[type="text"]{
+    flex-grow: 1;   /* for small screens i.e. below 600px the input text box will take max space. */
+    margin-right: 10px;
+}
+form input[type="text"],button
+[type="submit"]{
+    border:none;
+    font: size 18px;
+    padding:10px;
+    border-radius: 4px; /* for making the corners soft */
+}
+form button[type="submit"]{      /* for the search buttton */
+    background-color: #f44336;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out; /* when we are hovering on the search bar then the background-color is changing very rapidly so we want that the color should change but not so rapidly. */
+}
+form button[type="submit"]:hover, .recipe button:hover, .recipe-close-btn:hover
+{  /* This hover property is applied to search and view recipe buttons */
+    /* when mouse hovers over the submit button change its color from blue to red. */
+    background-color: #ff5c5c;
+}
+/* Main Section */
+
+.recipe-container{
+    text-align: center;
+    margin-top: 20px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); /* the no. of images that could fit in the page will fit automatically. */
+    grid-gap:40px;
+    width: 80%; /* note that by default this container will take 100% width so we need to change it manually. */
+    margin:10px auto;
+    padding:20px;
+    place-items: center; /* when output is only 1 or 2 images so they will be shown in center. */
+}
+.recipe{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(78,73,0.1), -5px -5px 10px rgba(34,34,0.5);
+    cursor: pointer;
+    max-width: 350px;
+    transition: transform 0.3 ease-in-out; /* for speed of image coming up on taking cursor to it */
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
+.searchBox {
+    width: 300px; /* Adjust width as needed */
+    margin-right: 10px; /* Add some space between input field and button */
+}
+
+.searchBtn {
+    background-color: #f44336; /* Example color, you can adjust */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px; /* for making the corners soft */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out; /* when we are hovering on the search bar then the background-color is changing very rapidly so we want that the color should change but not so rapidly. */
+}
+
+.searchBtn:hover {
+    background-color: #ff5c5c; /* Example hover color, you can adjust */
+}
+.recipe:hover{
+    transform: scale(1.02);    /* when we take cursor to the image then it comes bit up */
+}
+.recipe img{
+    height: 300px;
+}
+.recipe h3{  /* i.e name of recipe and other related information. */
+    font-size: 24px;
+    margin-block:5px;
+}
+.recipe p{
+    font-size: 20px;
+    color: #4a4a4a;
+    margin: 5px 0;
+}
+.recipe span{
+    font-weight:600;
+}
+.recipe button{
+    font-size:20px;
+    font-weight:600;
+    padding:10px;
+    border-radius: 8px;
+    border:none;
+    cursor: pointer;
+    margin: 18px auto;
+    background-color: #f44336;
+    color: #fff;
+}
+ /* Recipe Details */
+
+ .recipe-details{
+    display:none;
+    position: fixed;  /* so that it will remain fixed in the center even if we scroll down. */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%, -50%); /*this property works for different browsers such as chrome */
+    background-color: #694c2f;
+    border-radius: 12px;
+    width: 40%;
+    height: 60%;
+    font-size: 20px;
+    transition:all 0.5s ease-in-out;
+    overflow-y: scroll;  /* so that content of recipe could be scrolled. */
+ }
+
+ .recipe-details-content{
+    padding : 30px;
+ }
+
+.recipeName{
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+.ingredientList li{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.recipeInstructions p{
+    line-height: 30px;
+    white-space: pre-line;  /* handles white space */
+}
+.recipeName,.ingredientList,.recipeInstructions{
+    margin-bottom: 20px;
+}
+.recipe-close-btn{
+    border:none;
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #f44336;
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ /* Adding scrollbar to recipe popup */
+   .recipe-details::-webkit-scrollbar{
+    width: 10px;         /* for width of the scroll bar */
+   }
+
+   .recipe-details::-webkit-scrollbar-thumb{
+    background: #b5b5ba;
+    border-radius: 16px;
+    --webkit-border-radius:16px;
+
+   }
+  body::-webkit-scrollbar{
+    width: 16px;
+  }
+  body::-webkit-scrollbar-thumb{
+    background: #a1a1a1;
+  }
+  body::-webkit-scrollbar-track{  /* for background of scroll-bar */
+
+        background: #ebebeb;
+  }
+   
+
+/* Responsive Code */
+@media screen and (max-width:600px){
+    header nav{
+        flex-direction: column;
+    }
+    header nav form{
+    width:80%;
+    margin-top: 20px;
+}
+}
+
+

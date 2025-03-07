@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+   
+    <title>My Recipe App</title>
+    <style>
+        /* Add background image to body */
+        body {
+            background-image: url('bbb.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+             <h1>Recipe App</h1>
+             <form> 
+                <!-- form->to create a search box. actions removed from it because we are not going to submit the search. -->
+                <input type="text" placeholder="eg. cakes..." class="searchBox"/>
+                <button type="submit" class="searchBtn">Search</button>
+             </form>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="recipe-container">
+                <h2>Search your favourite recipes </h2>
+            </div>
+            <div class="recipe-details">
+                <button type="button" class="recipe-close-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="recipe-details-content"></div>
+            </div>
+        </section>
+    </main>
+<!-- Attaching javascript to our code. -->
+
+<script src="https://kit.fontawesome.com/00efc10e83.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script> 
+    
+</body>
+</html>
